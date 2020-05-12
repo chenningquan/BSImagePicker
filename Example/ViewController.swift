@@ -34,8 +34,9 @@ class ViewController: UIViewController {
         imagePicker.settings.selection.unselectOnReachingMax = true
 
         let start = Date()
-        self.presentImagePicker(imagePicker, select: { (asset) in
+        self.presentImagePicker(imagePicker, select: { (asset) -> Bool in
             print("Selected: \(asset)")
+            return false
         }, deselect: { (asset) in
             print("Deselected: \(asset)")
         }, cancel: { (assets) in
@@ -77,8 +78,9 @@ class ViewController: UIViewController {
             }
         }
 
-        self.presentImagePicker(imagePicker, select: { (asset) in
+        self.presentImagePicker(imagePicker, select: { (asset) -> Bool in
             print("Selected: \(asset)")
+            return false
         }, deselect: { (asset) in
             print("Deselected: \(asset)")
         }, cancel: { (assets) in
@@ -101,8 +103,9 @@ class ViewController: UIViewController {
         let imagePicker = ImagePickerController(selectedAssets: evenAssets)
         imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
 
-        self.presentImagePicker(imagePicker, select: { (asset) in
+        self.presentImagePicker(imagePicker, select: { (asset) -> Bool in
             print("Selected: \(asset)")
+            return false
         }, deselect: { (asset) in
             print("Deselected: \(asset)")
         }, cancel: { (assets) in
