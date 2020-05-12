@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         let start = Date()
         self.presentImagePicker(imagePicker, select: { (asset) -> Bool in
             print("Selected: \(asset)")
-            return true
+            return false
         }, deselect: { (asset) in
             print("Deselected: \(asset)")
         }, cancel: { (assets) in
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
 
         self.presentImagePicker(imagePicker, select: { (asset) -> Bool in
             print("Selected: \(asset)")
-            return true
+            return false
         }, deselect: { (asset) in
             print("Deselected: \(asset)")
         }, cancel: { (assets) in
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
 
         self.presentImagePicker(imagePicker, select: { (asset) -> Bool in
             print("Selected: \(asset)")
-            return true
+            return false
         }, deselect: { (asset) in
             print("Deselected: \(asset)")
         }, cancel: { (assets) in

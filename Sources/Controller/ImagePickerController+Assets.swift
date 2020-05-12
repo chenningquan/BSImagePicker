@@ -36,9 +36,10 @@ extension ImagePickerController: AssetsViewControllerDelegate {
             assetsViewController.unselect(asset: asset)
             assetStore.remove(asset)
             imagePickerDelegate?.imagePicker(self, didDeselectAsset: asset)
+        } else {
+            imagePickerDelegate?.imagePicker(self, didSelectAsset: asset)
         }
         updatedDoneButton()
-        imagePickerDelegate?.imagePicker(self, didSelectAsset: asset)
     }
 
     func assetsViewController(_ assetsViewController: AssetsViewController, didDeselectAsset asset: PHAsset) {
