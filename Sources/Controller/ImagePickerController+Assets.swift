@@ -31,6 +31,12 @@ extension ImagePickerController: AssetsViewControllerDelegate {
                 imagePickerDelegate?.imagePicker(self, didDeselectAsset: first)
             }
         }
+        // 判断选中代理返回的是否可选(默认可选)
+        if !(onSelection?(asset) ?? true) {
+            assetsViewController.unselect(asset: asset)
+            assetStore.remove(asset)
+            imagePickerDelegate?.imagePicker(self, didDeselectAsset: asset)
+        }
         updatedDoneButton()
         imagePickerDelegate?.imagePicker(self, didSelectAsset: asset)
     }

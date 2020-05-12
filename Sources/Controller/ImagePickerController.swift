@@ -42,7 +42,7 @@ fileprivate let localizedDone = Bundle(identifier: "com.apple.UIKit")?.localized
 
     // MARK: Internal properties
     var assetStore: AssetStore
-    var onSelection: ((_ asset: PHAsset) -> Void)?
+    var onSelection: ((_ asset: PHAsset) -> Bool)?
     var onDeselection: ((_ asset: PHAsset) -> Void)?
     var onCancel: ((_ assets: [PHAsset]) -> Void)?
     var onFinish: ((_ assets: [PHAsset]) -> Void)?
