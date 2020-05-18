@@ -24,7 +24,7 @@ import UIKit
 import Photos
 
 
-fileprivate let localizedDone = Bundle(identifier: "com.apple.UIKit")?.localizedString(forKey: "Done", value: "Done", table: "") ?? "Done"
+fileprivate let localizedDone = Bundle(identifier: "com.apple.UIKit")?.localizedString(forKey: "Done", value: "Done", table: "") ?? "完成"
 
 // MARK: ImagePickerController
 @objcMembers open class ImagePickerController: UINavigationController {

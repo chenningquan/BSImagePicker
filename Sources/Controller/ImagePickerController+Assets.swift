@@ -25,12 +25,6 @@ import Photos
 
 extension ImagePickerController: AssetsViewControllerDelegate {
     func assetsViewController(_ assetsViewController: AssetsViewController, didSelectAsset asset: PHAsset) {
-        if settings.selection.unselectOnReachingMax && assetStore.count > settings.selection.max {
-            if let first = assetStore.removeFirst() {
-                assetsViewController.unselect(asset:first)
-                imagePickerDelegate?.imagePicker(self, didDeselectAsset: first)
-            }
-        }
         // 判断选中代理返回的是否可选(默认可选)
         if !(onSelection?(asset) ?? true) {
             assetsViewController.unselect(asset: asset)
@@ -39,6 +33,14 @@ extension ImagePickerController: AssetsViewControllerDelegate {
         } else {
             imagePickerDelegate?.imagePicker(self, didSelectAsset: asset)
         }
+        
+        if settings.selection.unselectOnReachingMax && assetStore.count > settings.selection.max {
+            if let first = assetStore.removeFirst() {
+                assetsViewController.unselect(asset:first)
+                imagePickerDelegate?.imagePicker(self, didDeselectAsset: first)
+            }
+        }
+        
         updatedDoneButton()
     }
 
